@@ -1,0 +1,14 @@
+
+1. create project in GCP
+2, create storage bucker
+3. make sure storage API is enabled
+4. make default project as below
+
+
+gcloud auth application-default set-quota-project hrpolicyautomation
+
+gcloud auth application-default login
+
+
+run python ingest.py
+
