@@ -1,0 +1,23 @@
+Step 1: Create a 3.12 environment in Conda
+
+cmd
+conda create -n hrpolicy python=3.12 -y
+
+.venv\Scripts\python.exe --version
+
+uv pip install -r requirements.txt
+
+anaconda check
+
+(base) C:\Users\AISWARYAPRASAD>python -- version
+python: can't open file 'C:\\Users\\AISWARYAPRASAD\\version': [Errno 2] No such file or directory
+
+(base) C:\Users\AISWARYAPRASAD>python --version
+Python 3.13.9
+
+(base) C:\Users\AISWARYAPRASAD>python where
+python: can't open file 'C:\\Users\\AISWARYAPRASAD\\where': [Errno 2] No such file or directory
+
+(base) C:\Users\AISWARYAPRASAD>where python
+C:\Users\AISWARYAPRASAD\anaconda3\python.exe
+C:\Users\AISWARYAPRASAD\AppData\Local\Microsoft\WindowsApps\python.exe
