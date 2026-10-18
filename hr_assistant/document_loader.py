@@ -10,6 +10,7 @@ this file only loads text that is already text.
 """
 
 import json
+from venv import logger
 
 from google.cloud import storage
 from langchain_core.documents import Document
@@ -46,7 +47,7 @@ def load_documents_from_gcs(
     metadata."""
     client = storage.Client(project=config.PROJECT_ID)
     bucket = client.bucket(bucket_name)
-
+    logger.info("Loading documents from GCS bucket '%s' with prefix '%s'...", bucket_name, prefix)
     documents = []
     for blob in bucket.list_blobs(prefix=prefix):
         if not blob.name.endswith(".txt"):
@@ -61,6 +62,8 @@ def load_documents_from_gcs(
                 "gcs_path": f"gs://{bucket_name}/{blob.name}",
             },
         ))
+    logger.info("Loaded %d documents from GCS.", len(documents))
+    logger.info("Sample document metadata: %s", documents[0])
     return documents
 
 

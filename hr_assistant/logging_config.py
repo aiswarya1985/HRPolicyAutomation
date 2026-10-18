@@ -1,41 +1,40 @@
-"""03 · logging_config — one place to turn on readable console logging.
-
-The library modules (ingestion, processor) emit their operational lines —
-ingestion progress and the like — through `logging` at INFO, not bare
-print(). Errors go through logger.warning / logger.exception. Entry points
-call `configure_logging()` so those lines show on stdout / the Streamlit
-server console — not in the chat UI. Bare print() is only for a script's
-own output.
-"""
+"""03 · logging_config — one place to turn on readable console logging."""
 
 import logging
 import os
 
 _CONFIGURED = False
 
-
 def configure_logging(level: "str | int | None" = None) -> None:
-    """Attach a plain-message handler to the root logger, once per process.
-
-    Level: the explicit arg, else $LOG_LEVEL, else INFO. Idempotent —
-    safe to call from every entry point and from a Streamlit rerun.
-    """
+    """Attach a plain-message handler to the root logger, once per process."""
     global _CONFIGURED
     if _CONFIGURED:
         return
+        
+    log_level = level or os.getenv("LOG_LEVEL", "INFO")
+    
+    # 1. Console Handler (Keeps the clean output for your terminal)
     logging.basicConfig(
-        level=level or os.getenv("LOG_LEVEL", "INFO"),
+        level=log_level,
         format="%(message)s",
     )
     
-    # 2. NEW: The File Handler (writes to local file)
-    file_handler = logging.FileHandler("ingest_run.log", mode="a", encoding="utf-8")
-    file_handler.setFormatter(logging.Formatter("%(asctime)s | %(levelname)s | %(message)s"))
+    # 2. File Handler (Detailed format)
+    file_handler = logging.FileHandler("hrpolicy_automation.log", mode="a", encoding="utf-8")
+    
+    # Format: Timestamp | Level | File | Method | Line | Message
+    file_format = (
+        "%(asctime)s | %(levelname)-8s | "
+        "[File: %(filename)s] "                  # e.g., ingestion.py
+        "[Method: %(funcName)s] "                # e.g., ingest_hr_policies
+        "[Line: %(lineno)d] | "                  # e.g., 54
+        "%(message)s"
+    )
+    file_handler.setFormatter(logging.Formatter(file_format))
     
     # Attach the file handler to the root logger
     logging.getLogger().addHandler(file_handler)
-    # Streamlit configures the root logger before our code runs, so
-    # basicConfig above is a no-op there; make sure our package's lines
-    # still pass the level filter.
-    logging.getLogger("hr_assistant").setLevel(level or os.getenv("LOG_LEVEL", "INFO"))
+    
+    # Streamlit config fix
+    logging.getLogger("hr_assistant").setLevel(log_level)
     _CONFIGURED = True
