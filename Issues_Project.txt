@@ -12,3 +12,8 @@ gcloud auth application-default login
 
 run python ingest.py
 
+streamlit run app.py
+
+we need to enable this API else gemini model throwing error
+
+gcloud services enable aiplatform.googleapis.com --project=hrpolicyautomation

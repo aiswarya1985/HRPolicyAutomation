@@ -8,6 +8,7 @@ collection it already built, and bootstraps it once only on a completely
 fresh setup.
 """
 
+import json
 import logging
 
 from langgraph.checkpoint.memory import InMemorySaver
@@ -17,6 +18,7 @@ from hr_assistant.agent import create_hr_agent
 from hr_assistant.llm import get_llm
 from hr_assistant.tools import create_search_tool
 from hr_assistant.vector_store import collection_exists, load_vector_store
+from hr_assistant.ingestion import ingest_hr_policies
 
 logger = logging.getLogger(__name__)
 
@@ -43,8 +45,8 @@ def build_hr_assistant(checkpointer=None):
     and Streamlit UI). Pass checkpointer=False from studio_graph.py to build
     the graph with none — `langgraph dev` supplies persistence itself and
     rejects a graph with one baked in."""
-    from hr_assistant.ingestion import ingest_hr_policies
-
+    
+    logger.info("Entering in build_hr_assistant() — checkpointer=%s", checkpointer)
     config.check_api_keys()
     _bootstrap_collection(config.QDRANT_COLLECTION_NAME, ingest_hr_policies)
 
@@ -67,9 +69,12 @@ def ask(agent, question: str, thread_id: str = "default-session") -> str:
     `.text` (not `.content`) is read off the final message: Gemini 2.5+
     returns content as a list of blocks carrying a "thought signature"
     alongside the text; `.text` extracts just the plain string regardless."""
+    logger.info("Entering ask")
     response = agent.invoke(
         {"messages": [{"role": "user",
                 "content": question}]},
         config={"configurable": {"thread_id": thread_id}},
     )
+    clean_response = {"messages": [msg.dict() for msg in response["messages"]]}
+    logger.info("ask() got response:\n%s", json.dumps(clean_response, indent=2, default=str))
     return response["messages"][-1].text

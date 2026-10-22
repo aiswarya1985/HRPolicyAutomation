@@ -56,7 +56,7 @@ def ingest_hr_policies(force: bool = False) -> None:
     if collection_exists(name) and not force:
         logger.info("Collection '%s' already populated — skipping (use --force to rebuild).", name)
         return
-
+     
     documents = load_documents_from_gcs()
     chunks = split_into_chunks(documents)
     build_vector_store(chunks, hybrid=True, collection_name=name)

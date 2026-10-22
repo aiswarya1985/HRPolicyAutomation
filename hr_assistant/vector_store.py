@@ -26,6 +26,8 @@ from qdrant_client.models import FieldCondition, Filter, MatchAny, PayloadSchema
 
 from hr_assistant import config
 from hr_assistant.embeddings import get_embeddings_model
+import logging
+logger = logging.getLogger(__name__)
 
 
 _ID_NAMESPACE = uuid.UUID("5b9c1a1e-8b1a-4f7d-9d5e-2b6a7c9d1e3f")  # fixed, arbitrary
@@ -40,6 +42,7 @@ def _qdrant_client() -> QdrantClient:
 
 
 def collection_exists(collection_name: str) -> bool:
+    logger.info("Entering collection_exists() with collection_name: %s", collection_name)
     """True only if the collection exists AND has at least one point in it."""
     client = _qdrant_client()
     if not client.collection_exists(collection_name):
@@ -63,7 +66,7 @@ def load_vector_store(
             f"Qdrant collection '{collection_name}' is missing or empty. "
             f"Run `python ingest.py` once to ingest the corpus."
         )
-    
+    logger.info("Entering load_vector_store() with collection_name: %s, hybrid: %s", collection_name, hybrid)
     kwargs = dict(
         collection_name=collection_name,
         embedding=get_embeddings_model(),
@@ -148,7 +151,7 @@ def get_retriever(
     hr_assistant/tools.py's guarded search tool.
     """
     search_kwargs = {"k": k}
-
+    logger.info("Entering get_retriever() with k=%d, filter_categories=%s", k, filter_categories)
     if filter_categories:
         search_kwargs["filter"] = Filter(
             must=[FieldCondition(key="metadata.policy_category",

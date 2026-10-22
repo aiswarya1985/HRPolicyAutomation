@@ -11,10 +11,15 @@ Vertex errors) is added in a later stage.
 from langchain_google_genai import ChatGoogleGenerativeAI
 
 from hr_assistant import config
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def get_llm():
     """The app's chat model — Vertex AI Gemini, temperature 0."""
+    logger.info("Entering get_llm()")
     return ChatGoogleGenerativeAI(
         model=config.LLM_MODEL_NAME,
         vertexai=True,

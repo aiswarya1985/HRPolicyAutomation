@@ -1,0 +1,613 @@
+2026-10-22 17:52:32,942 | INFO     | [File: tracing.py] [Method: check_langsmith_tracing] [Line: 32] | LangSmith tracing is OFF (set LANGSMITH_TRACING=true in .env to enable)
+2026-10-22 17:52:32,969 | INFO     | [File: pipeline.py] [Method: ask] [Line: 72] | Entering ask
+2026-10-22 17:52:35,860 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://us-central1-aiplatform.googleapis.com/v1beta1/projects/hrpolicyautomation/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-22 17:52:35,868 | INFO     | [File: tools.py] [Method: search_hr_policy] [Line: 29] | Entering search_hr_policy() with question: work from home policies
+2026-10-22 17:52:35,876 | INFO     | [File: vector_store.py] [Method: get_retriever] [Line: 154] | Entering get_retriever() with k=12, filter_categories=None
+2026-10-22 17:52:45,481 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies/points/query "HTTP/1.1 200 OK"
+2026-10-22 17:52:45,481 | INFO     | [File: tools.py] [Method: search_hr_policy] [Line: 33] | Candidates:
+[
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "01a7178f-585e-507a-bd64-d9bcc9ee6f4c",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "WORK FROM HOME POLICY\r\n\r\nPolicy Category: Work From Home\r\n\r\n1. Purpose\r\nThis policy outlines the eligibility, expectations, and process for employees working remotely on a regular or occasional basis.\r\n\r\n2. Eligibility\r\nEmployees who have completed their probation period (see the Probation Policy) and whose role does not require a fixed physical presence (e.g., front-desk, warehouse, or facilities roles) are eligible to work from home, subject to manager approval.",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "add19c8a-bfe0-50c4-96c2-ba791d54dc5d",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "6. Equipment and Expenses\r\nThe company provides a laptop and any role-specific software required to work from home. A one-time home office setup allowance may be claimed through the Reimbursement Policy, subject to the limits defined there.\r\n\r\n7. Expectations While Working From Home",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "928e7dba-4a0e-51fe-b2c9-1630bbf33081",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "7. Expectations While Working From Home\r\nEmployees working from home are expected to be reachable during standard working hours, attend scheduled meetings with video on where appropriate, and maintain the same productivity standards as in-office work. Repeated unavailability during working hours while marked as \"working from home\" may result in the arrangement being revoked.\r\n\r\n8. Manager Discretion",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "reimbursement_policy.txt",
+      "policy_category": "Reimbursement",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/reimbursement_policy.txt",
+      "_id": "62bd6788-fbda-56a4-aa58-a53a83cb9681",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Home Office Setup Allowance\r\nEmployees eligible for the Work From Home Policy may claim a one-time home office setup allowance of up to 15,000 (local currency) within their first 3 months of eligibility, covering items such as a desk, chair, or monitor. Receipts are required for all claims.\r\n\r\n4. Internet and Mobile Reimbursement",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "probation_policy.txt",
+      "policy_category": "Probation",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/probation_policy.txt",
+      "_id": "0e566235-605f-56ba-a984-1715d87f7d9a",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "7. Benefits During Probation\r\nEmployees on probation are eligible for sick leave and casual leave on a pro-rated basis from their date of joining, but are not eligible to apply for work-from-home arrangements (see the Work From Home Policy) until confirmed, except with special manager approval.\r\n\r\n8. Training and Onboarding",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "127f0f55-0fbb-55e7-9d4b-b3c5ee086671",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Standard Work From Home Allowance\r\nEligible employees may work from home up to 2 days per week as a standing arrangement, agreed with their manager. Employees are not permitted to work from home every day as a default arrangement; teams are expected to maintain in-office collaboration on at least 3 days per week unless the role is designated fully remote in the employment contract.\r\n\r\n4. Occasional Work From Home",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "holidays_policy.txt",
+      "policy_category": "Holidays",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/holidays_policy.txt",
+      "_id": "ea65b436-cab7-54b0-8722-8950ca5469ab",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "6. Interaction With Annual Leave\r\nAs noted in the Leave Policy, a public holiday that falls within a period of approved annual leave is not deducted from the employee's annual leave balance; the leave balance is automatically adjusted.\r\n\r\n7. Office Closure\r\nThe office (for employees not working from home) is closed on all declared public holidays. Employees working from home on such days are not expected to be reachable, the same as employees in the office.\r\n\r\n8. Regional Variations",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "5ae6de1d-e710-5c31-9f56-ff2d8518fdf0",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "4. Occasional Work From Home\r\nIn addition to the standing 2-day allowance, employees may request occasional additional work-from-home days (e.g., for a home repair appointment or a focus-heavy task) by informing their manager at least 1 day in advance via chat or email. These occasional requests are not tracked formally but should be reasonable in frequency.\r\n\r\n5. Fully Remote Roles",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "reimbursement_policy.txt",
+      "policy_category": "Reimbursement",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/reimbursement_policy.txt",
+      "_id": "972cfda0-9d8d-5a18-b325-a9674f28fefe",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "2. Eligible Expense Categories\r\nThe following categories are eligible for reimbursement, subject to the limits below: internet and mobile bills for remote work, home office setup (one-time), professional certifications relevant to the employee's role, business travel (see also the Travel and Expense Policy for trip-specific rules), and client entertainment pre-approved by a manager.\r\n\r\n3. Home Office Setup Allowance",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "code_of_conduct_policy.txt",
+      "policy_category": "Code of Conduct",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/code_of_conduct_policy.txt",
+      "_id": "63119ba1-7a5b-56cc-9937-4b5142f7a3b3",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "6. Use of Company Resources\r\nCompany equipment, software licenses, and systems are provided for work purposes. Reasonable personal use is permitted (e.g., checking personal email) provided it does not interfere with work duties or violate any other section of this policy.\r\n\r\n7. Reporting Violations",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "397b8d29-a587-54b1-a9e5-6c6467f3402d",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "8. Manager Discretion\r\nTeam managers retain discretion to temporarily suspend work-from-home arrangements for specific projects that require in-person collaboration, with at least 1 week's notice to affected employees where possible.",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "exit_process_policy.txt",
+      "policy_category": "Exit Process",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/exit_process_policy.txt",
+      "_id": "bab257c7-3178-59d3-a365-4072944154de",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "EXIT PROCESS POLICY\r\n\r\nPolicy Category: Exit Process\r\n\r\n1. Purpose\r\nThis policy describes the steps an employee and the company follow between resignation (or termination) and the employee's last working day.\r\n\r\n2. Resignation Submission\r\nEmployees who wish to resign must submit their resignation in writing through the HR portal, triggering the notice period described in the Notice Period Policy. The resignation is acknowledged by the manager and HR within 3 working days.\r\n\r\n3. Exit Interview",
+    "type": "Document"
+  }
+]
+2026-10-22 17:52:45,481 | INFO     | [File: reranker.py] [Method: rerank] [Line: 24] | Entering rerank() with query: work from home policies, top_n: 5, candidates: 12
+2026-10-22 17:52:46,411 | INFO     | [File: reranker.py] [Method: rerank] [Line: 44] | Rerank results:
+[
+  {
+    "index": 0,
+    "relevance_score": 0.86971462
+  },
+  {
+    "index": 3,
+    "relevance_score": 0.67747402
+  },
+  {
+    "index": 5,
+    "relevance_score": 0.619241
+  },
+  {
+    "index": 1,
+    "relevance_score": 0.61277324
+  },
+  {
+    "index": 7,
+    "relevance_score": 0.59313804
+  }
+]
+2026-10-22 17:52:46,411 | INFO     | [File: tools.py] [Method: search_hr_policy] [Line: 36] | Top Chunks:
+[
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "01a7178f-585e-507a-bd64-d9bcc9ee6f4c",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "WORK FROM HOME POLICY\r\n\r\nPolicy Category: Work From Home\r\n\r\n1. Purpose\r\nThis policy outlines the eligibility, expectations, and process for employees working remotely on a regular or occasional basis.\r\n\r\n2. Eligibility\r\nEmployees who have completed their probation period (see the Probation Policy) and whose role does not require a fixed physical presence (e.g., front-desk, warehouse, or facilities roles) are eligible to work from home, subject to manager approval.",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "reimbursement_policy.txt",
+      "policy_category": "Reimbursement",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/reimbursement_policy.txt",
+      "_id": "62bd6788-fbda-56a4-aa58-a53a83cb9681",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Home Office Setup Allowance\r\nEmployees eligible for the Work From Home Policy may claim a one-time home office setup allowance of up to 15,000 (local currency) within their first 3 months of eligibility, covering items such as a desk, chair, or monitor. Receipts are required for all claims.\r\n\r\n4. Internet and Mobile Reimbursement",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "127f0f55-0fbb-55e7-9d4b-b3c5ee086671",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Standard Work From Home Allowance\r\nEligible employees may work from home up to 2 days per week as a standing arrangement, agreed with their manager. Employees are not permitted to work from home every day as a default arrangement; teams are expected to maintain in-office collaboration on at least 3 days per week unless the role is designated fully remote in the employment contract.\r\n\r\n4. Occasional Work From Home",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "add19c8a-bfe0-50c4-96c2-ba791d54dc5d",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "6. Equipment and Expenses\r\nThe company provides a laptop and any role-specific software required to work from home. A one-time home office setup allowance may be claimed through the Reimbursement Policy, subject to the limits defined there.\r\n\r\n7. Expectations While Working From Home",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "work_from_home_policy.txt",
+      "policy_category": "Work From Home",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/work_from_home_policy.txt",
+      "_id": "5ae6de1d-e710-5c31-9f56-ff2d8518fdf0",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "4. Occasional Work From Home\r\nIn addition to the standing 2-day allowance, employees may request occasional additional work-from-home days (e.g., for a home repair appointment or a focus-heavy task) by informing their manager at least 1 day in advance via chat or email. These occasional requests are not tracked formally but should be reasonable in frequency.\r\n\r\n5. Fully Remote Roles",
+    "type": "Document"
+  }
+]
+2026-10-22 17:53:00,950 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://us-central1-aiplatform.googleapis.com/v1beta1/projects/hrpolicyautomation/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-22 17:53:00,960 | INFO     | [File: pipeline.py] [Method: ask] [Line: 78] | ask() got response:
+{
+  "messages": [
+    "content='What is the maternity leave policy?' additional_kwargs={} response_metadata={} id='e76337af-4238-4158-9b5d-c5b1610c84ea'",
+    "content='' additional_kwargs={'function_call': {'name': 'search_hr_policy', 'arguments': '{\"question\": \"maternity leave policy\"}'}, '__gemini_function_call_thought_signatures__': {'649eab21-9ae2-4297-989e-3b3fd4c117aa': 'AY89a1/B5F/he1NTL793Ex02pZzFO61uZCBJTUpYWzRYmClFVQJRh5LcDr7PnHDHTw8wdsE/KeLNGVEOAa4o/Ntaw7ifGmysVsDImYN3qrra73p18wQJ93/GX6DJtNJXuJ9QkMtMwTj8yi0jihLUzxE4MjP1NHLrM5YwMVfalqIVYcZlm4KlkQHwYvg8IHPzcj6328qRc7Ebef6ZDGsMzZJkxfPOOtL8VPNwgfMIV8UUPdsgiOfUA0qQ86zerwMZoCHqw8rzsbfD2xjKmWHCaXJmU8s4u2k6M/Jgo6vDgSpZYZulJLMHP5+4bn74sTSVtnZX3uoq3NxkI+NotbIHafGHyeXnwJ4mk9Vq99ST+MBPwzEcAUDuXc8V10zXEq5VJNoaENNX3O+38kxuqslfsbSSOsXX1C8FZk9IvQ=='}} response_metadata={'finish_reason': 'STOP', 'model_name': 'gemini-2.5-flash', 'safety_ratings': [], 'model_provider': 'google_genai'} id='lc_run--01a1638e-3c55-77d1-ba8a-2e9c10393bb4-0' tool_calls=[{'name': 'search_hr_policy', 'args': {'question': 'maternity leave policy'}, 'id': '649eab21-9ae2-4297-989e-3b3fd4c117aa', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 384, 'output_tokens': 67, 'total_tokens': 451, 'input_token_details': {'cache_read': 0}, 'output_token_details': {'reasoning': 48}}",
+    "content=\"[Source: maternity_paternity_policy.txt]\\nMATERNITY AND PATERNITY LEAVE POLICY\\r\\n\\r\\nPolicy Category: Maternity Paternity\\r\\n\\r\\n1. Purpose\\r\\nThis policy outlines paid leave entitlements for employees becoming parents through childbirth, surrogacy, or adoption.\\r\\n\\r\\n2. Maternity Leave\\n\\n[Source: maternity_paternity_policy.txt]\\n2. Maternity Leave\\r\\nEmployees who give birth are entitled to 26 weeks of paid maternity leave, which may begin up to 8 weeks before the expected delivery date. This entitlement applies to employees who have completed at least 80 days of service in the 12 months preceding the expected delivery date.\\r\\n\\r\\n3. Paternity Leave\\n\\n[Source: maternity_paternity_policy.txt]\\n8. Interaction With Other Leave\\r\\nMaternity, paternity, and adoption leave are separate from and do not reduce the employee's annual leave balance as described in the Leave Policy. Employees continue to accrue annual leave while on maternity, paternity, or adoption leave.\\r\\n\\r\\n9. Probationary Employees\\n\\n[Source: maternity_paternity_policy.txt]\\n6. Job Protection\\r\\nEmployees returning from maternity, paternity, or adoption leave are guaranteed reinstatement to the same role or an equivalent role with the same pay and seniority, in line with applicable local labor law.\\r\\n\\r\\n7. Phased Return to Work\\r\\nEmployees returning from maternity or adoption leave may request a phased return, working reduced hours for up to 4 weeks at full pay, subject to manager and HR approval.\\r\\n\\r\\n8. Interaction With Other Leave\\n\\n[Source: maternity_paternity_policy.txt]\\n9. Probationary Employees\\r\\nEmployees on probation (see the Probation Policy) who become eligible for maternity, paternity, or adoption leave during their probation period have their probation period paused and resumed upon return, rather than counted against them.\" name='search_hr_policy' id='c3843aa1-ee1a-4684-8dcc-2ff009605acd' tool_call_id='649eab21-9ae2-4297-989e-3b3fd4c117aa'",
+    "content=[{'type': 'text', 'text': \"The maternity leave policy provides employees who give birth with 26 weeks of paid maternity leave. This leave can commence up to 8 weeks before the expected delivery date. To be eligible, employees must have completed at least 80 days of service in the 12 months preceding the expected delivery date.\\n\\nKey aspects of the policy include:\\n*   **Job Protection:** Employees returning from maternity leave are guaranteed reinstatement to the same or an equivalent role with the same pay and seniority, in accordance with local labor law.\\n*   **Phased Return to Work:** Employees may request a phased return, working reduced hours for up to 4 weeks at full pay, subject to manager and HR approval.\\n*   **Interaction with Other Leave:** Maternity leave is separate from and does not reduce an employee's annual leave balance. Employees continue to accrue annual leave while on maternity leave.\\n*   **Probationary Employees:** For employees on probation, the probation period is paused during maternity leave and resumes upon their return.\\n\\nThis information is sourced from the `maternity_paternity_policy.txt` document.\", 'extras': {'signature': 'AY89a18GgjKpc0u3Rvv7H/BLMfQWwQDXO5dXfyo9M0yEwgWFxf/c5HXAUHAPxFbKEqM81ClxGPT21VIAkj5N4u2JJE4S68wgyLLZgMNwI5a6aL91mQNMGbpnpl7PK7MfXMOMzBwHkbyfwfygg38t9ufDgIvY3Uc1V4fZ72tpXVnpzFcb9/GUe0geu4A73gwt3YiW1Fo/Nsgssqvje/oFQU9EYFOQCdLVpItdsHYpAKEA5QwMLpPdiwmfA1iTHfAmpI3hpG1HFfzi+Ic5D9ndYSME3Qu7/xqr39OTmEiv+HAK0KmOoyOExJcO8fg9DewiZw+QA1YkCqndxsb6ieezTSLga9dDFyexrXsROreeFTjTCjlNYbXwplxxRdlaEq8JWjebjhpkNEidQU40WdLGbB4PiYD2iIXw/Xxo/URr/lSay9Mq8z4hehXBdOoNyfrdzW9om15JIwDKeyAnWBIGQc8NxI4J9FgKon10m0kZmk+UjuefGSJ4CMfnNvgccB1zy5aD6ReCzm38HRRo4heMZmx8TvS2cPTIryY07dyun1UO3yT2zS+4n7wt8hB2UJhpeE7XA5QxlpGDoNgfKu0aIALI0U/9Z2+nb9Q0+McG2PPOrJh8FkVMwZch0aPgfq9ljQFF5i7nqsmreDoNtsowHm9h1lwWt/x/B5mTgvbx2ErGkIWRNY2Ls/4k0aPnCWwTX+hl47NSaT5d4ju544PSc2VAOcfkEVgIoD6BP0HYAFZQ/2I6gQ4u/1gk4YQRxM4gHHFo4lrPYCbH7j2Zq6RkYogV+c41H/5J4I8WchFLdUHi/G7CSCSZ+nobLgKcBYZ5gJ0uzq8DhTldJaxLN0XwRCeY44Q2YEt02RFVMBepfnJkgT17UpwOw1mu3xbHDrLBhw=='}}] additional_kwargs={} response_metadata={'finish_reason': 'STOP', 'model_name': 'gemini-2.5-flash', 'safety_ratings': [], 'model_provider': 'google_genai'} id='lc_run--01a1638e-639c-7a43-a873-bcaa931a74bd-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 853, 'output_tokens': 354, 'total_tokens': 1207, 'input_token_details': {'cache_read': 0}, 'output_token_details': {'reasoning': 126}}",
+    "content='Does that apply during probation' additional_kwargs={} response_metadata={} id='5a02aef4-970d-44fc-8e41-5f41c2489484'",
+    "content=[{'type': 'text', 'text': 'Yes, the maternity leave policy applies to probationary employees. If an employee on probation becomes eligible for maternity leave during their probation period, their probation period is paused and will resume upon their return from leave, rather than being counted against them. This information is from the `maternity_paternity_policy.txt` document.', 'extras': {'signature': 'AY89a1/Y/GDO81KMHgGhQt7uNMWQ8+qDcEWWy/R6PF8Lgnzr7MzidbA3kWPaWkETRbJfm26TfkdeIeUzRgTviaizfZw7kFoA/sHgMHgHnkY8jVd6H+QjlLaduhLqOv9SSYY3VjpGaOZX7C6WoML43Pkns4MAIbDAcp338BScmAATam5UAgxFMZgj1yZvVnD0SAcSx/zbR3gCj0RIlpuBkmmRes5k1ndLm22OFYLU1jV/OtbkWWfmRy/Dc8RQTNh3+atntZBEJxMd+6UVaxXAjiPIUxVK2o+CiraPV1/+acHc2pyAtD+vAyBmTTueR/qibU1o2nyBWmgwBCciomAlFxc957F8wLtXCwzw+0/cgk03gieHlDEnXPV/BVFm9Se5A8ZyFH+o4G4nnbvtZQoesSfWt0sXFj9XQWYzQaKKu28f84gWwdAzLRwlArScNH7XriXc6ri33W+u9hkfx9bfntAjckR70Y6P6zZk/5/wjFrvj8I='}}] additional_kwargs={} response_metadata={'finish_reason': 'STOP', 'model_name': 'gemini-2.5-flash', 'safety_ratings': [], 'model_provider': 'google_genai'} id='lc_run--01a1638e-a824-7e42-aaae-2b3fbdbe8408-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1038, 'output_tokens': 122, 'total_tokens': 1160, 'input_token_details': {'cache_read': 0}, 'output_token_details': {'reasoning': 57}}",
+    "content='explain work from home policies ' additional_kwargs={} response_metadata={} id='5aeedb18-65b0-4990-bab7-7e5173d93d5c'",
+    "content='' additional_kwargs={'function_call': {'name': 'search_hr_policy', 'arguments': '{\"question\": \"work from home policies\"}'}, '__gemini_function_call_thought_signatures__': {'74fc7ab5-2e49-41ea-8d57-4e5f8d923e83': 'AY89a19kv7jvMrI1dxGjjSm27mwU80+i62X7CxWXYuoHjUzb0dDefrdYceUdY7X9ZePIqgjnCGsxNyxAZWHMmHnEWQwCeNhsUBAUbJiaStMVKzBbeCZji42G6j4PwNFRFWrt81yBd2stm0S3ZgNoW9eqLDo8VyCPEmR5IVwVEg0/74tlHqjMdhk23g60TQHaVnoh5qCGCVHynOdEderLoVS2lUVARTvsWEEErkrxvZ5renK50+riT7n5wBhmrA+kQwJ5Ag1hEKhbRJm4JROV/pao8M/Am9Gfql8ZU5wQuAgOHS4cVVr+z3EiJ8iMmWQrCA3oRzX/Ccm8uXDKtAkTGd/grYGj2APIHKoiQS5Y7AqKTDXol0tcWr5N3GFla2q3tvEdLnqIfncYnjx0p8vK0XQBgGCW5UQhfNYyl5uxaBRzmZOh3ArcYszsR9I0e+HAPdHeQmtzx61oRqwmhj4QugzNYw/q2Qfdt+q7UM6+ajf7As4cmC7HyPC7oVWBdU7Ce7Id2YLhc5GjLGJs+PvDC9OJMEje'}} response_metadata={'finish_reason': 'STOP', 'model_name': 'gemini-2.5-flash', 'safety_ratings': [], 'model_provider': 'google_genai'} id='lc_run--01a16390-2316-7d03-9f43-9e9203fb671f-0' tool_calls=[{'name': 'search_hr_policy', 'args': {'question': 'work from home policies'}, 'id': '74fc7ab5-2e49-41ea-8d57-4e5f8d923e83', 'type': 'tool_call'}] invalid_tool_calls=[] usage_metadata={'input_tokens': 1109, 'output_tokens': 84, 'total_tokens': 1193, 'input_token_details': {'cache_read': 0}, 'output_token_details': {'reasoning': 65}}",
+    "content='[Source: work_from_home_policy.txt]\\nWORK FROM HOME POLICY\\r\\n\\r\\nPolicy Category: Work From Home\\r\\n\\r\\n1. Purpose\\r\\nThis policy outlines the eligibility, expectations, and process for employees working remotely on a regular or occasional basis.\\r\\n\\r\\n2. Eligibility\\r\\nEmployees who have completed their probation period (see the Probation Policy) and whose role does not require a fixed physical presence (e.g., front-desk, warehouse, or facilities roles) are eligible to work from home, subject to manager approval.\\n\\n[Source: reimbursement_policy.txt]\\n3. Home Office Setup Allowance\\r\\nEmployees eligible for the Work From Home Policy may claim a one-time home office setup allowance of up to 15,000 (local currency) within their first 3 months of eligibility, covering items such as a desk, chair, or monitor. Receipts are required for all claims.\\r\\n\\r\\n4. Internet and Mobile Reimbursement\\n\\n[Source: work_from_home_policy.txt]\\n3. Standard Work From Home Allowance\\r\\nEligible employees may work from home up to 2 days per week as a standing arrangement, agreed with their manager. Employees are not permitted to work from home every day as a default arrangement; teams are expected to maintain in-office collaboration on at least 3 days per week unless the role is designated fully remote in the employment contract.\\r\\n\\r\\n4. Occasional Work From Home\\n\\n[Source: work_from_home_policy.txt]\\n6. Equipment and Expenses\\r\\nThe company provides a laptop and any role-specific software required to work from home. A one-time home office setup allowance may be claimed through the Reimbursement Policy, subject to the limits defined there.\\r\\n\\r\\n7. Expectations While Working From Home\\n\\n[Source: work_from_home_policy.txt]\\n4. Occasional Work From Home\\r\\nIn addition to the standing 2-day allowance, employees may request occasional additional work-from-home days (e.g., for a home repair appointment or a focus-heavy task) by informing their manager at least 1 day in advance via chat or email. These occasional requests are not tracked formally but should be reasonable in frequency.\\r\\n\\r\\n5. Fully Remote Roles' name='search_hr_policy' id='fe8b1085-78e9-472d-82d5-3a3fa670832b' tool_call_id='74fc7ab5-2e49-41ea-8d57-4e5f8d923e83'",
+    "content=[{'type': 'text', 'text': \"The Work From Home Policy outlines the eligibility, expectations, and process for employees working remotely.\\n\\nHere's a breakdown of the policy:\\n\\n**1. Eligibility:**\\n*   Employees must have completed their probation period.\\n*   Their role should not require a fixed physical presence (e.g., front-desk, warehouse, or facilities roles).\\n*   Eligibility is subject to manager approval.\\n\\n**2. Standard Work From Home Allowance:**\\n*   Eligible employees can work from home up to 2 days per week as a standing arrangement, agreed upon with their manager.\\n*   Employees are not permitted to work from home every day by default; teams are expected to maintain in-office collaboration on at least 3 days per week, unless the role is designated as fully remote in the employment contract.\\n\\n**3. Occasional Work From Home:**\\n*   In addition to the standard 2-day allowance, employees can request occasional additional work-from-home days (e.g., for a home repair appointment or a task requiring deep focus).\\n*   Such requests should be made by informing their manager at least 1 day in advance via chat or email.\\n*   These occasional requests are not formally tracked but should be reasonable in frequency.\\n\\n**4. Equipment and Expenses:**\\n*   The company provides a laptop and any role-specific software necessary for working from home.\\n*   **Home Office Setup Allowance:** Employees eligible for the Work From Home Policy may claim a one-time home office setup allowance of up to 15,000 (local currency) within their first 3 months of eligibility. This allowance covers items such as a desk, chair, or monitor, and receipts are required for all claims.\\n\\nThis information is primarily sourced from the `work_from_home_policy.txt` and `reimbursement_policy.txt` documents.\", 'extras': {'signature': 'AY89a1+DGcHIw1WE5QQk8lqcvkHW7/sUIG0WmbEqDn1i5Fp8MqdVMzy+yz0GqDVl03t1J3mdK72j8Qz3ocde5N0isFmfH9S9x9duvH24V9Vs5swDeX7rSrogp7y6vDuffsb0a+hANUJN94CM9THPt1AUOfy6fiDmz7mZKW4MaLsZzNUFkZeGUgOFK/i3j5UcYLSqbXwkYjQeTtTot0k4xuUOr1fjE84UK6zKuQPsQGU4jlzhtkzyymCJiO/nIAUzO3e0Pdv8Evv1BJoK7fEIYmEtChJ2eOwUkx6sM+pbMwWg12faXLklimB5T1XPsG6uggwrlgz+Zs0pfwasGiyKji6h0GhHmj+JFQJOF5ZkeL0blCiQbV0CT7iXh9wwGcxUV5mUB4jgWeegRn5MRDss11Dv7175HjNOKqZLhrU8KSOSn1UlwD5p9S14NZbaDyZmpx6WCgnyzasZ+HvK4H6SVXMlerQxXLyiJYNzqsbenlyyk5sF2cEtMx3vjkdSFTuSRowe5hwx5oNVgEfGIhiz46+byHO6vqllKdwKrUlzqUmHKyO5DLkZVKta7KNI+Xlp3U+ZD+xiNyQ08nAT8IhxEZJfA9TjsMH+ikU1VK8x/cl5sS8H8/f+kqTmXI+cvnoHpUlWGzM3guwCH69Y3CAEOofh45snFehIwbfpM2rFWw=='}}] additional_kwargs={} response_metadata={'finish_reason': 'STOP', 'model_name': 'gemini-2.5-flash', 'safety_ratings': [], 'model_provider': 'google_genai'} id='lc_run--01a16390-579a-7291-9d15-b386a5d40a80-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1676, 'output_tokens': 475, 'total_tokens': 2151, 'input_token_details': {'cache_read': 0}, 'output_token_details': {'reasoning': 84}}"
+  ]
+}
+2026-10-22 17:54:35,487 | INFO     | [File: tracing.py] [Method: check_langsmith_tracing] [Line: 26] | LangSmith tracing ENABLED - project 'hr-policy-assistant', traces at https://smith.langchain.com
+2026-10-22 17:54:37,381 | INFO     | [File: pipeline.py] [Method: build_hr_assistant] [Line: 49] | Entering in build_hr_assistant() — checkpointer=None
+2026-10-22 17:54:37,383 | INFO     | [File: vector_store.py] [Method: collection_exists] [Line: 45] | Entering collection_exists() with collection_name: hr_policies
+2026-10-22 17:54:38,538 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: GET https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies/exists "HTTP/1.1 200 OK"
+2026-10-22 17:54:38,538 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: GET https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-22 17:54:38,845 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies/points/count "HTTP/1.1 200 OK"
+2026-10-22 17:54:38,847 | INFO     | [File: vector_store.py] [Method: collection_exists] [Line: 45] | Entering collection_exists() with collection_name: hr_policies
+2026-10-22 17:54:39,139 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: GET https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies/exists "HTTP/1.1 200 OK"
+2026-10-22 17:54:39,456 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies/points/count "HTTP/1.1 200 OK"
+2026-10-22 17:54:39,460 | INFO     | [File: vector_store.py] [Method: load_vector_store] [Line: 69] | Entering load_vector_store() with collection_name: hr_policies, hybrid: True
+2026-10-22 17:54:41,302 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: GET https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies "HTTP/1.1 200 OK"
+2026-10-22 17:54:41,304 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: GET https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-10-22 17:54:49,893 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: GET https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies "HTTP/1.1 200 OK"
+2026-10-22 17:54:49,905 | INFO     | [File: llm.py] [Method: get_llm] [Line: 22] | Entering get_llm()
+2026-10-22 17:54:50,122 | INFO     | [File: agent.py] [Method: create_hr_agent] [Line: 23] | Entering create_hr_agent() — checkpointer=<langgraph.checkpoint.memory.InMemorySaver object at 0x0000012B47B4D3A0>
+2026-10-22 17:55:36,355 | INFO     | [File: tracing.py] [Method: check_langsmith_tracing] [Line: 26] | LangSmith tracing ENABLED - project 'hr-policy-assistant', traces at https://smith.langchain.com
+2026-10-22 17:55:36,372 | INFO     | [File: pipeline.py] [Method: ask] [Line: 72] | Entering ask
+2026-10-22 17:55:41,512 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://us-central1-aiplatform.googleapis.com/v1beta1/projects/hrpolicyautomation/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-22 17:55:41,628 | INFO     | [File: tools.py] [Method: search_hr_policy] [Line: 29] | Entering search_hr_policy() with question: notice period for employees
+2026-10-22 17:55:41,628 | INFO     | [File: vector_store.py] [Method: get_retriever] [Line: 154] | Entering get_retriever() with k=12, filter_categories=None
+2026-10-22 17:55:53,736 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://6acaca34-47b1-4fea-b716-16d03d86be89.us-central1-0.gcp.cloud.qdrant.io:6333/collections/hr_policies/points/query "HTTP/1.1 200 OK"
+2026-10-22 17:55:53,741 | INFO     | [File: tools.py] [Method: search_hr_policy] [Line: 33] | Candidates:
+[
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "1f585bf7-b7dc-51b0-9eea-844d61de914d",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "NOTICE PERIOD POLICY\r\n\r\nPolicy Category: Notice Period\r\n\r\n1. Purpose\r\nThis policy defines the notice period required when an employee resigns or when the company initiates termination of employment, outside of the probation period.\r\n\r\n2. Standard Notice Period",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "a37445eb-0a4c-57bf-a9f2-9672c9c7e3f0",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "2. Standard Notice Period\r\nOnce an employee has been confirmed after probation (see the Probation Policy), the standard notice period is 60 days (2 calendar months) for both resignation by the employee and termination initiated by the company, except in cases of termination for cause.\r\n\r\n3. Notice Period for Senior Roles",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "a1ebaaaa-6858-5139-8841-7bcd5b3cc160",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "4. Payment in Lieu of Notice\r\nEither party may elect to shorten the notice period through payment in lieu of notice. If the company initiates this, the employee receives their full salary and benefits for the unserved portion of the notice period. If the employee requests early release and the company agrees, the employee may be required to forfeit salary for the unserved period, at the company's discretion.\r\n\r\n5. Handover Requirements",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "leave_policy.txt",
+      "policy_category": "Leave",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/leave_policy.txt",
+      "_id": "b78cf244-332c-5ef1-98f0-6aa5ad6abc02",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "6. Leave During Notice Period\r\nEmployees serving their notice period (see the Notice Period Policy) may not take annual leave during the last 15 days of their notice period without explicit written approval from their manager and HR.\r\n\r\n7. Unpaid Leave",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "probation_policy.txt",
+      "policy_category": "Probation",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/probation_policy.txt",
+      "_id": "0fa3a675-2ab4-55c2-997c-15602a8dc729",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Notice Period During Probation\r\nDuring the probation period, either the employee or the company may terminate the employment relationship with 15 days' written notice, or payment in lieu of notice, whichever the terminating party elects. This is shorter than the standard post-confirmation notice period described in the Notice Period Policy.\r\n\r\n4. Performance Review During Probation",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "4b2861c8-b314-5598-9f36-2078376c677f",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Notice Period for Senior Roles\r\nEmployees at the Director level and above are required to serve a notice period of 90 days, given the additional handover and succession planning typically required at that level.\r\n\r\n4. Payment in Lieu of Notice",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "maternity_paternity_policy.txt",
+      "policy_category": "Maternity Paternity",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/maternity_paternity_policy.txt",
+      "_id": "73bf4175-0c8f-5279-bc30-2ab60d07e1c8",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "5. Notification Requirements\r\nEmployees should notify HR and their manager of their expected leave at least 8 weeks in advance where possible, to allow for adequate handover and temporary coverage planning, coordinated similarly to the handover process in the Notice Period Policy.\r\n\r\n6. Job Protection",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "probation_policy.txt",
+      "policy_category": "Probation",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/probation_policy.txt",
+      "_id": "106f806c-54aa-55b8-bc7e-41f1fd923e65",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "PROBATION POLICY\r\n\r\nPolicy Category: Probation\r\n\r\n1. Purpose\r\nThis policy describes the probation period applicable to new employees and the process for confirmation, extension, or termination during that period.\r\n\r\n2. Duration of Probation\r\nAll new full-time employees serve a probation period of 3 months (90 calendar days) from their date of joining, unless a different duration is explicitly stated in their offer letter.\r\n\r\n3. Notice Period During Probation",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "214f7aec-1fde-5ac8-a12d-e9e68b37641b",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "5. Handover Requirements\r\nDuring the notice period, the departing employee is expected to prepare a written handover document covering ongoing projects, key contacts, and access credentials, to be reviewed with their manager no later than 10 days before the last working day.\r\n\r\n6. Leave During Notice Period",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "exit_process_policy.txt",
+      "policy_category": "Exit Process",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/exit_process_policy.txt",
+      "_id": "bab257c7-3178-59d3-a365-4072944154de",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "EXIT PROCESS POLICY\r\n\r\nPolicy Category: Exit Process\r\n\r\n1. Purpose\r\nThis policy describes the steps an employee and the company follow between resignation (or termination) and the employee's last working day.\r\n\r\n2. Resignation Submission\r\nEmployees who wish to resign must submit their resignation in writing through the HR portal, triggering the notice period described in the Notice Period Policy. The resignation is acknowledged by the manager and HR within 3 working days.\r\n\r\n3. Exit Interview",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "003ab56a-0830-51c0-9964-98a938f8fe55",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "6. Leave During Notice Period\r\nAs stated in the Leave Policy, annual leave may not be taken during the final 15 days of the notice period without written approval from both the manager and HR, to ensure adequate handover time.\r\n\r\n7. Termination for Cause",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "probation_policy.txt",
+      "policy_category": "Probation",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/probation_policy.txt",
+      "_id": "520f634b-646a-5e81-8507-e591035dad09",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "5. Confirmation\r\nIf performance during probation is satisfactory, the employee's manager submits a confirmation recommendation to HR before the end of the probation period. Once confirmed, the employee moves to the standard notice period and full leave entitlements described elsewhere in this handbook.\r\n\r\n6. Extension of Probation",
+    "type": "Document"
+  }
+]
+2026-10-22 17:55:53,749 | INFO     | [File: reranker.py] [Method: rerank] [Line: 24] | Entering rerank() with query: notice period for employees, top_n: 5, candidates: 12
+2026-10-22 17:55:54,589 | INFO     | [File: reranker.py] [Method: rerank] [Line: 44] | Rerank results:
+[
+  {
+    "index": 1,
+    "relevance_score": 0.82446188
+  },
+  {
+    "index": 5,
+    "relevance_score": 0.77184349
+  },
+  {
+    "index": 0,
+    "relevance_score": 0.69760895
+  },
+  {
+    "index": 4,
+    "relevance_score": 0.69595832
+  },
+  {
+    "index": 8,
+    "relevance_score": 0.68679029
+  }
+]
+2026-10-22 17:55:54,589 | INFO     | [File: tools.py] [Method: search_hr_policy] [Line: 36] | Top Chunks:
+[
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "a37445eb-0a4c-57bf-a9f2-9672c9c7e3f0",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "2. Standard Notice Period\r\nOnce an employee has been confirmed after probation (see the Probation Policy), the standard notice period is 60 days (2 calendar months) for both resignation by the employee and termination initiated by the company, except in cases of termination for cause.\r\n\r\n3. Notice Period for Senior Roles",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "4b2861c8-b314-5598-9f36-2078376c677f",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Notice Period for Senior Roles\r\nEmployees at the Director level and above are required to serve a notice period of 90 days, given the additional handover and succession planning typically required at that level.\r\n\r\n4. Payment in Lieu of Notice",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "1f585bf7-b7dc-51b0-9eea-844d61de914d",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "NOTICE PERIOD POLICY\r\n\r\nPolicy Category: Notice Period\r\n\r\n1. Purpose\r\nThis policy defines the notice period required when an employee resigns or when the company initiates termination of employment, outside of the probation period.\r\n\r\n2. Standard Notice Period",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "probation_policy.txt",
+      "policy_category": "Probation",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/probation_policy.txt",
+      "_id": "0fa3a675-2ab4-55c2-997c-15602a8dc729",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "3. Notice Period During Probation\r\nDuring the probation period, either the employee or the company may terminate the employment relationship with 15 days' written notice, or payment in lieu of notice, whichever the terminating party elects. This is shorter than the standard post-confirmation notice period described in the Notice Period Policy.\r\n\r\n4. Performance Review During Probation",
+    "type": "Document"
+  },
+  {
+    "id": null,
+    "metadata": {
+      "source": "notice_period_policy.txt",
+      "policy_category": "Notice Period",
+      "gcs_path": "gs://hrpolicyrag/raw/hr-policies/notice_period_policy.txt",
+      "_id": "214f7aec-1fde-5ac8-a12d-e9e68b37641b",
+      "_collection_name": "hr_policies"
+    },
+    "page_content": "5. Handover Requirements\r\nDuring the notice period, the departing employee is expected to prepare a written handover document covering ongoing projects, key contacts, and access credentials, to be reviewed with their manager no later than 10 days before the last working day.\r\n\r\n6. Leave During Notice Period",
+    "type": "Document"
+  }
+]
+2026-10-22 17:55:58,836 | INFO     | [File: _client.py] [Method: _send_single_request] [Line: 1025] | HTTP Request: POST https://us-central1-aiplatform.googleapis.com/v1beta1/projects/hrpolicyautomation/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-22 17:55:58,856 | INFO     | [File: pipeline.py] [Method: ask] [Line: 79] | ask() got response:
+{
+  "messages": [
+    {
+      "content": "notice perriod for employees",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": "8eebf73c-7fe6-48be-b190-aeef52c0d277"
+    },
+    {
+      "content": "",
+      "additional_kwargs": {
+        "function_call": {
+          "name": "search_hr_policy",
+          "arguments": "{\"question\": \"notice period for employees\"}"
+        },
+        "__gemini_function_call_thought_signatures__": {
+          "747fed9a-d88c-4fad-bdd0-c9202938aba6": "AY89a1+NfnCGQv6w6k5cvjzJNPwgoaASjtHZv9X9vVkmAoI5V7tkL5A5PjlQhBVr5K6bjbvCfy7mxazn/ywhAgjAChaEt1wAhRIVWbAPoMZ9d6LpS9TOZrAy7NcrIJapSMDk3ruKn0gxPpCLFi8OhWoFNzQPvO1ycDHCkGeC2mo6zmMvodaff2wY6cVwfm80YikfrRAtvw20u0BGpdVYwE6HmHHJDF0wAYhIRJpmGHY8qWaZAwUyNadTlPGd/270MOJbfXzdIl98vMaJWQQPyD8BxUMmwhD+p3NrTqL61momwzYGPqyW+h4ERWf1EJ5g85DVigh2KURxoSu46tZlbqMxzkl+qVubDjBN7OvIoXewA7T1SbEss17yLydYY6EOTG5fEivoA1SQz4pUwu0QujWInqXNqcSWiJnIE5PVV0OllKF/6vTkLUEl85rCHDYgjiJQqfPyJqWH+kaUsYcCHhiu7XKz5ShUx7rLdlRqSWIxHQvmR6mkgJa/hv8="
+        }
+      },
+      "response_metadata": {
+        "finish_reason": "STOP",
+        "model_name": "gemini-2.5-flash",
+        "safety_ratings": [],
+        "model_provider": "google_genai"
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a16392-f0cb-7a80-bfab-af2248cd0cc1-0",
+      "tool_calls": [
+        {
+          "name": "search_hr_policy",
+          "args": {
+            "question": "notice period for employees"
+          },
+          "id": "747fed9a-d88c-4fad-bdd0-c9202938aba6",
+          "type": "tool_call"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 383,
+        "output_tokens": 79,
+        "total_tokens": 462,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 60
+        }
+      }
+    },
+    {
+      "content": "[Source: notice_period_policy.txt]\n2. Standard Notice Period\r\nOnce an employee has been confirmed after probation (see the Probation Policy), the standard notice period is 60 days (2 calendar months) for both resignation by the employee and termination initiated by the company, except in cases of termination for cause.\r\n\r\n3. Notice Period for Senior Roles\n\n[Source: notice_period_policy.txt]\n3. Notice Period for Senior Roles\r\nEmployees at the Director level and above are required to serve a notice period of 90 days, given the additional handover and succession planning typically required at that level.\r\n\r\n4. Payment in Lieu of Notice\n\n[Source: notice_period_policy.txt]\nNOTICE PERIOD POLICY\r\n\r\nPolicy Category: Notice Period\r\n\r\n1. Purpose\r\nThis policy defines the notice period required when an employee resigns or when the company initiates termination of employment, outside of the probation period.\r\n\r\n2. Standard Notice Period\n\n[Source: probation_policy.txt]\n3. Notice Period During Probation\r\nDuring the probation period, either the employee or the company may terminate the employment relationship with 15 days' written notice, or payment in lieu of notice, whichever the terminating party elects. This is shorter than the standard post-confirmation notice period described in the Notice Period Policy.\r\n\r\n4. Performance Review During Probation\n\n[Source: notice_period_policy.txt]\n5. Handover Requirements\r\nDuring the notice period, the departing employee is expected to prepare a written handover document covering ongoing projects, key contacts, and access credentials, to be reviewed with their manager no later than 10 days before the last working day.\r\n\r\n6. Leave During Notice Period",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "tool",
+      "name": "search_hr_policy",
+      "id": "9ec62b8a-735f-41a5-a643-3e942a93f81d",
+      "tool_call_id": "747fed9a-d88c-4fad-bdd0-c9202938aba6",
+      "artifact": null,
+      "status": "success"
+    },
+    {
+      "content": [
+        {
+          "type": "text",
+          "text": "The notice period for employees varies depending on their employment status and role:\n\n*   **Standard Notice Period:** Once an employee has been confirmed after probation, the standard notice period is 60 days (2 calendar months) for both resignation by the employee and termination initiated by the company. This is outlined in the `notice_period_policy.txt`.\n*   **Notice Period for Senior Roles:** Employees at the Director level and above are required to serve a notice period of 90 days. This is also stated in the `notice_period_policy.txt`.\n*   **Notice Period During Probation:** During the probation period, either the employee or the company may terminate the employment relationship with 15 days' written notice. This information comes from the `probation_policy.txt`.\n\nDuring the notice period, the departing employee is expected to prepare a written handover document covering ongoing projects, key contacts, and access credentials, to be reviewed with their manager no later than 10 days before the last working day, as per the `notice_period_policy.txt`.",
+          "extras": {
+            "signature": "AY89a18mhndOQaW1rDLSS/kPQaLM3SUzg1B4EmdOYjXzQ+2PpEknbQHorAcPWI2YHCjAkTFW9Ts2zbz2HQ/ulhWHGNQpL0nFEgL8XRPAgW4iKy6mOjkIS7Tt4K7DD75btQyq/tiA9hde3QQ3uGbNrgTctPTEnpdAsSW6ryzwD5mHcG0Byj5O6wjieTLHRxadI1xJ4AhgDgDmiXTOWYf3IpQ0OJw+bSebHHnpLHLHk9HP5pRjUbl9qa8OM0s3ZsSVLp4yfY8FswAoOPbOnEU3xweeJHROIGYRq07v8uRmEGpfYqvqPPsy5u/JeaHWQy9jIKQ0AoPnedVrQF/2n8fhBpF8XktoShymtX3l30ChyCiD4P/OQ+DnHXswjt202VuhDslz4zdNRKP0toy0yLfG618KbHZpXd8Fi2cY5l8yllffmdFQo2aFpE0Zg8PU5UzDz7xPMVXaFfdnfV6FxITk1DPGzJRUzlqMi2FYaYfnbYLKwc4KUzrX31O3UiHhqIv5ofaPNBJJATpGv+eziKCuG7aByXkmusXewvtT0zDe00CpQfdGDyq3qXz6JTakblabDaQdjCIXiXzvwg3Zqx3AksOWQ+a8NIFB4zAYohZ2epKRiOtdZGLjz4e/og6H4OXjhbc3cg5WPypu6rAY7JBIuc7bGR/mJj5Rrw8H9x39ljrpRhbMOpVnqENEMGyaWI6eha7XRWKFi+nBhmA3/JdetKJ0nf9nbNVecq1yhSvCHokdF7lQvHNMNRe7S5eYCKNuFm74nMkbYJl2HdcRJXLUCGzv/jvq2mdEhntcANwq5gR7VZrrAi6rOufn1DI2+ksA9QQNyFSBNC86ov0RnOlj2Oj5gUXftchln4rBCvyAcIXp1cv3T24Xt4fTUTq9VXAE0SIcq8/wO9nfq8WTl2dwA9YcKmO0V87tJo3QvMMpaQCeXnEgw38xXMvuvexgVESA4ehWfsDzEaahah4aek3kWPf/NR7uJsyuPGhgPsirju7HqSUJRGEWZvfPSKHrh1X2VzRd4RtXI7rW9pOczpRyiLeRS5lyRyN3wf4TIZ/RpbSOm0K/fPdnkqW5FCzrqBsD6Q9Ms56IJELaAWbIPEa2rryc2Fa76yYBfNuu93q8u+T8D970Ti04QQcgPFDUEdFSmbZpCbU6i2PSURxTSpna+JbM1dEJK9nerq8n7lhXm+0Bd8dukRTJtgxqnOksSlI6f7nZO1KYARxAVH+C95baQ5WePMxCZIRuTVolgKIaibps9Og0KSfX4WC9NeBlT5KYzT4H4Wbkz0K3Hp+Jss3kirEYwoKAMTr+NONLfM8MyNVTNwGYZfFJjhSE0O9pkMo5Ix8+vPtk/IRokGOGoNhXHsvrhcP2EnXf1c2RnO1950CA0V21uEuHvcuC8hiRmB++kmyRO0GFa/U2Dm82ef5puZE+ho6Xq/hlLIy9pqIVzbwPMKGUW5sZboXzorKlrOqGRXdA2ZUo/7RqfRg6IDY9KBLT6vbpc58hKmRKxU/iiL2Y1d3FMkEYtnqMJ57WJkwD7KCxDeC+yBZ5LooFrtzSY1jECd2RNit1k1flZxYkDbetfCWDlhrV"
+          }
+        }
+      ],
+      "additional_kwargs": {},
+      "response_metadata": {
+        "finish_reason": "STOP",
+        "model_name": "gemini-2.5-flash",
+        "safety_ratings": [],
+        "model_provider": "google_genai"
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a16393-36b3-7933-8c3d-82e87ad57c32-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 835,
+        "output_tokens": 471,
+        "total_tokens": 1306,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 248
+        }
+      }
+    }
+  ]
+}

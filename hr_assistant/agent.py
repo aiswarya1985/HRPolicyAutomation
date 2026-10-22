@@ -5,7 +5,9 @@ tied together by LangChain's create_agent.
 from langchain.agents import create_agent
 
 from hr_assistant import prompts
+import logging
 
+logger = logging.getLogger(__name__)
 
 def create_hr_agent(llm, tools, checkpointer=None):
     """The agent. The checkpointer (e.g. InMemorySaver) is what gives the
@@ -18,6 +20,7 @@ def create_hr_agent(llm, tools, checkpointer=None):
     will supply persistence itself — a graph compiled with a custom
     checkpointer baked in is rejected by `langgraph dev` (see
     studio_graph.py, 19)."""
+    logger.info("Entering create_hr_agent() — checkpointer=%s", checkpointer)
     kwargs = {}
     if checkpointer is not None:
         kwargs["checkpointer"] = checkpointer

@@ -10,7 +10,9 @@ import requests
 from hr_assistant import config
 
 JINA_RERANK_URL = "https://api.jina.ai/v1/rerank"
-
+import json
+import logging
+logger = logging.getLogger(__name__)
 
 def rerank(query: str, 
     candidates: list, 
@@ -19,7 +21,7 @@ def rerank(query: str,
     return the top `top_n` Documents, best first."""
     if not candidates:
         return []
-
+    logger.info("Entering rerank() with query: %s, top_n: %d, candidates: %d", query, top_n, len(candidates))
     response = requests.post(
         JINA_RERANK_URL,
         headers={
@@ -39,6 +41,7 @@ def rerank(query: str,
 
     # each result carries an "index" back into the original candidates list
     ranked = response.json()["results"]
+    logger.info("Rerank results:\n%s", json.dumps(ranked, indent=2, default=str))
     return [candidates[r["index"]] for r in ranked]
 
 
