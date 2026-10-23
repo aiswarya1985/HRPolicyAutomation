@@ -54,6 +54,13 @@ QDRANT_NOISY_COLLECTION_NAME = os.getenv("QDRANT_NOISY_COLLECTION_NAME", "hr_pol
 # https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions
 LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "gemini-2.5-flash")
 
+# Fallback model — served by Groq if the Vertex Gemini call errors (see
+# hr_assistant/llm.py's LiteLLM Router). llm.py prefixes this with "groq/".
+# Needs GROQ_API_KEY set; without it the primary still works, the fallback
+# just can't fire.
+FALLBACK_MODEL_NAME = os.getenv("FALLBACK_MODEL_NAME", "openai/gpt-oss-20b")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY","")
+
 # jina-embeddings-v2-base-en: 768-dim, English. Changing it changes the
 # vector dimension, so it also needs `python ingest.py --force`.
 EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "jina-embeddings-v2-base-en")
@@ -73,6 +80,55 @@ CHUNK_OVERLAP = 60
 # return the whole thing no matter how the prompt is worded.
 TOP_K_RESULTS = 5
 RERANK_CANDIDATE_K = 12  # wider shortlist retrieved before re-ranking
+
+## RELIABILITY — scope guardrail (see hr_assistant/tools.py)
+
+# Exact values used in each policy file's "Policy Category:" line. The
+# search tool hard-filters retrieval to only these categories — non-HR
+# chunks (Finance/Sales/Operations/Business) are structurally unreachable,
+# regardless of how confused embedding similarity gets.
+HR_POLICY_CATEGORIES = {
+    "Leave", "Work From Home", "Probation", "Notice Period", "Reimbursement",
+    "Code of Conduct", "Holidays", "Maternity Paternity", "Travel Expense", "Exit Process",
+}
+
+# Post-rerank relevance score cutoff — below this, the tool reports "not
+# found" instead of returning a stray, technically-in-scope-but-irrelevant
+# chunk. Jina relevance scores are ~0-1; this is a starting point, calibrate
+# empirically against real queries rather than trusting it blindly.
+RELEVANCE_THRESHOLD = 0.35
+
+## RELIABILITY — input/output safety guardrail (Model Armor)
+
+GUARDRAIL_PROVIDER = os.getenv("GUARDRAIL_PROVIDER", "model_armor")  # "model_armor" | "gemini_lite" | "none"
+MODEL_ARMOR_LOCATION = os.getenv("MODEL_ARMOR_LOCATION", "us")  # multi-region; verify supported regions at setup time
+MODEL_ARMOR_TEMPLATE_ID = os.getenv("MODEL_ARMOR_TEMPLATE_ID", "hr-assistant-guardrail")
+
+# What to do when the guardrail PROVIDER itself errors (an API failure, not
+# a content block). Input fails closed — an unscreened prompt must never
+# reach the model. Output fails open — a transient screening error
+# shouldn't discard an answer the model already produced. Both overridable.
+# See hr_assistant/guardrails.py.
+GUARDRAIL_FAIL_OPEN_INPUT = os.getenv("GUARDRAIL_FAIL_OPEN_INPUT", "false").strip().lower() == "true"
+GUARDRAIL_FAIL_OPEN_OUTPUT = os.getenv("GUARDRAIL_FAIL_OPEN_OUTPUT", "true").strip().lower() == "true"
+
+# The input guardrail screens the current question plus up to this many of
+# the most recent *user* turns for the thread (0 disables history
+# screening) — so a multi-turn attack that looks harmless message-by-message
+# is still caught in aggregate. Assistant answers and tool output are never
+# included. See hr_assistant/thread_memory.py's input_text_for_screening.
+GUARDRAIL_HISTORY_TURNS = int(os.getenv("GUARDRAIL_HISTORY_TURNS", "6"))
+
+## RELIABILITY — semantic cache
+
+SEMANTIC_CACHE_THRESHOLD = 0.93  # cosine similarity above this = cache hit
+
+# Bound the in-memory cache: a long-lived process shouldn't grow forever,
+# and a stale answer (policy changed + re-ingested) shouldn't be served
+# indefinitely. Past MAX_ENTRIES the oldest entry is evicted; entries older
+# than TTL_SECONDS are ignored on lookup (0 = never expire).
+SEMANTIC_CACHE_MAX_ENTRIES = int(os.getenv("SEMANTIC_CACHE_MAX_ENTRIES", "500"))
+SEMANTIC_CACHE_TTL_SECONDS = int(os.getenv("SEMANTIC_CACHE_TTL_SECONDS", "3600"))
 
 ## LANGSMITH — request tracing (env-var based; langchain auto-traces)
 
