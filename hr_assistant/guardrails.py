@@ -65,6 +65,7 @@ def _model_armor_template() -> str:
 
 
 def _check_with_model_armor(text: str, direction: str) -> tuple[bool, str]:
+    logger.info("Entering _check_with_model_armor() with direction: %s, text: %s", direction, text)
     client = _model_armor_client()
     data = modelarmor_v1.DataItem(text=text)
 

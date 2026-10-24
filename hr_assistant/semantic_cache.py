@@ -58,33 +58,43 @@ class SemanticCache:
 
     def _fresh_entries(self) -> list[dict]:
         """Entries not past their TTL (ttl_seconds <= 0 disables expiry)."""
+        logger.info("Entering _fresh_entries() with ttl_seconds: %d, current entries: %d", self.ttl_seconds, len(self._entries))
         if self.ttl_seconds <= 0:
             return list(self._entries)
         cutoff = time.monotonic() - self.ttl_seconds
+        logger.info("Filtering entries with cutoff time: %f", cutoff)
+        logger.info("Entries after filtering: %s", [e for e in self._entries if e["stored_at"] >= cutoff])
         return [e for e in self._entries if e["stored_at"] >= cutoff]
 
     @traceable(name="semantic_cache_lookup")
     def lookup(self, question: str) -> str | None:
         """Return the cached answer for a near-duplicate question, or None."""
+        logger.info("Entering lookup() with question: %s", question)
         entries = self._fresh_entries()
         if not entries:
             logger.info("CACHE MISS (cache empty)")
             return None
 
         raw = self._embed(question)
+        logger.info("Computed embedding for question: %s", raw)
         query = raw / (np.linalg.norm(raw) or 1.0)
+        logger.info("Normalized query embedding: %s", query)
 
         # One matrix-vector product instead of a Python loop over entries.
         matrix = np.vstack([e["embedding"] for e in entries])
+        logger.info("Constructed embedding matrix with shape: %s", matrix.shape)
         row_norms = np.linalg.norm(matrix, axis=1)
+        logger.info("Computed row norms for embedding matrix: %s", row_norms)
         row_norms[row_norms == 0] = 1.0
         scores = (matrix / row_norms[:, None]) @ query
+        logger.info("Computed cosine similarity scores: %s", scores)
 
         best_idx = int(np.argmax(scores))
         best_score = float(scores[best_idx])
 
         if best_score >= self.threshold:
             best = entries[best_idx]
+            logger.info("found cache hit: %s with score %.3f", best, best_score)
             logger.info(
                 "CACHE HIT (similarity=%.3f vs %r) — skipping retrieval + LLM",
                 best_score,
@@ -97,11 +107,14 @@ class SemanticCache:
 
     def store(self, question: str, answer: str) -> None:
         # Reuses lookup()'s embedding when the question matches — see _embed().
+        logger.info("Storing question-answer pair in cache: question=%s, answer=%s", question, answer)
+        logger.info("Current cache size before storing: %d", len(self._entries))
         self._entries.append(
             {
                 "embedding": self._embed(question),
                 "question": question,
                 "answer": answer,
                 "stored_at": time.monotonic(),
-            }
+            }            
         )
+        logger.info("New cache size after storing: %d", len(self._entries))

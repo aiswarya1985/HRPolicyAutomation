@@ -1,0 +1,64 @@
+{
+  "values": {
+    "messages": [
+      {
+        "type": "human",
+        "content": "explain about airfare class",
+        "id": "33602c88-c8d2-491a-ba54-b1afe4550473"
+      },
+      {
+        "type": "ai",
+        "content": "",
+        "tool_calls": [
+          {
+            "name": "search_hr_policy",
+            "args": {
+              "question": "airfare class"
+            },
+            "id": "call_97589dde3f0749c6bc2e5d45c77d..."
+          }
+        ],
+        "usage_metadata": {
+          "input_tokens": 611,
+          "output_tokens": 79,
+          "total_tokens": 690,
+          "reasoning_tokens": 61
+        },
+        "id": "lc_run--01a16ddf-5bc3-7841-89be-8d78ce2bb4c4-0"
+      },
+      {
+        "type": "tool",
+        "name": "search_hr_policy",
+        "content": "[Source: travel_expense_policy.txt] (relevance: 0.53)\n4. Airfare Class\nEmployees below Director level travel in economy class for flights under 6 hours...\n\n[Source: travel_expense_policy.txt] (relevance: 0.25)\n3. Booking Process\nFlights and hotels for approved trips should be booked...\n\n[Source: travel_expense_policy.txt] (relevance: 0.08)\n8. Combining Business Travel...\n\n[Source: travel_expense_policy.txt] (relevance: 0.07)\n7. Ground Transportation...\n\n[Source: travel_expense_policy.txt] (relevance: 0.07)\n6. Per Diem Allowance...",
+        "tool_call_id": "call_97589dde3f0749c6bc2e5d45c77d...",
+        "id": "3a54ad27-2c4c-4188-8cd3-a10ca50a6aba"
+      },
+      {
+        "type": "ai",
+        "content": "According to the travel expense policy, the airfare class depends on the employee's level and flight duration:\n\n*   **Employees below Director level:**\n    *   Economy class for flights under 6 hours.\n    *   Premium economy for flights over 6 hours.\n*   **Director level and above:**\n    *   May book business class for international flights over 6 hours.\n\nThis information is from the `travel_expense_policy.txt` document.",
+        "usage_metadata": {
+          "input_tokens": 1095,
+          "output_tokens": 153,
+          "total_tokens": 1248,
+          "reasoning_tokens": 54
+        },
+        "id": "lc_run--01a16ddf-78cd-76c2-8bef-22a0b785bd27-0"
+      }
+    ]
+  },
+  "config": {
+    "configurable": {
+      "thread_id": "de782e52-3225-49cb-b367-e60653f78c43",
+      "checkpoint_ns": "",
+      "checkpoint_id": "1f1cfa5f-ed84-6db0-8003-4c18c70677cd"
+    }
+  },
+  "metadata": {
+    "source": "loop",
+    "step": 3,
+    "ls_integration": "langchain_create_agent"
+  },
+  "created_at": "2026-10-24T12:25:27.733803+00:00",
+  "tasks": [],
+  "interrupts": []
+}

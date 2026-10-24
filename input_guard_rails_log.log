@@ -1,0 +1,13 @@
+2026-10-24 17:38:55,109 | INFO     | [File: tracing.py] [Method: check_langsmith_tracing] [Line: 26] | LangSmith tracing ENABLED - project 'hr-policy-assistant', traces at https://smith.langchain.com
+2026-10-24 17:38:58,689 | INFO     | [File: vector_store.py] [Method: collection_exists] [Line: 45] | Entering collection_exists() with collection_name: hr_policies
+2026-10-24 17:38:59,942 | INFO     | [File: vector_store.py] [Method: collection_exists] [Line: 45] | Entering collection_exists() with collection_name: hr_policies
+2026-10-24 17:39:00,548 | INFO     | [File: vector_store.py] [Method: load_vector_store] [Line: 69] | Entering load_vector_store() with collection_name: hr_policies, hybrid: True
+2026-10-24 17:39:04,177 | INFO     | [File: llm.py] [Method: get_llm] [Line: 80] | Entering get_llm() with model_name=gemini-2.5-flash
+2026-10-24 17:39:04,301 | INFO     | [File: router.py] [Method: routing_strategy_init] [Line: 1461] | Routing strategy: simple-shuffle
+2026-10-24 17:39:04,309 | INFO     | [File: agent.py] [Method: create_reliability_agent] [Line: 49] | Creating reliability agent with RELIABILITY_SYSTEM_PROMPT
+2026-10-24 17:39:04,326 | INFO     | [File: pipeline.py] [Method: _build_guarded_assistant] [Line: 70] | agent and semantic cache;<langgraph.graph.state.CompiledStateGraph object at 0x000001BF2ED5B3B0>, <hr_assistant.semantic_cache.SemanticCache object at 0x000001BF2ED5AFC0>
+2026-10-24 17:40:56,954 | INFO     | [File: tracing.py] [Method: check_langsmith_tracing] [Line: 26] | LangSmith tracing ENABLED - project 'hr-policy-assistant', traces at https://smith.langchain.com
+2026-10-24 17:40:56,980 | INFO     | [File: thread_memory.py] [Method: input_text_for_screening] [Line: 92] | entering input_text_for_screening() with thread_id=2a250dc8-26f9-443d-bafc-fbc49f9c29a8, turns=6, state=StateSnapshot(values={}, next=(), config={'recursion_limit': 9999, 'metadata': {'ls_integration': 'langchain_create_agent'}, 'configurable': {'thread_id': '2a250dc8-26f9-443d-bafc-fbc49f9c29a8'}}, metadata=None, created_at=None, parent_config=None, tasks=(), interrupts=())
+2026-10-24 17:40:56,988 | INFO     | [File: thread_memory.py] [Method: input_text_for_screening] [Line: 94] | messages retrieved for screening: []
+2026-10-24 17:40:57,336 | INFO     | [File: guardrails.py] [Method: _check_with_model_armor] [Line: 68] | Entering _check_with_model_armor() with direction: input, text: explain about airfare class
+2026-10-24 17:41:07,535 | INFO     | [File: pipeline.py] [Method: ask] [Line: 126] | INPUT GUARDRAIL: pass (ok)

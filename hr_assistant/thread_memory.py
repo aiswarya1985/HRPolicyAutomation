@@ -36,10 +36,12 @@ def invoke_agent(agent, question: str, thread_id: str):
     text; `.text` extracts the plain string regardless of shape. The message
     object (not just its text) is returned so a caller can overwrite it in
     memory by id."""
+    logger.info("Invoking agent with thread_id=%s, question=%s", thread_id, question)
     response = agent.invoke(
         {"messages": [{"role": "user", "content": question}]},
         config=thread_config(thread_id),
     )
+    logger.info("Agent response: %s", response)
     return response["messages"][-1]
 
 
@@ -49,10 +51,13 @@ def record_turn(agent, thread_id: str, question: str, answer: str) -> None:
     later follow-up ("tell me more about that") still has this turn in
     context. Best-effort; a memory-write failure must not fail the request."""
     try:
+        logger.info("Recording turn in thread memory: thread_id=%s, question=%s, answer=%s", thread_id, question, answer)
+        logger.info("agent state before update: %s", agent.get_state(thread_config(thread_id)))
         agent.update_state(
             thread_config(thread_id),
             {"messages": [HumanMessage(content=question), AIMessage(content=answer)]},
         )
+        logger.info("agent state after update: %s", agent.get_state(thread_config(thread_id)))
     except Exception:
         logger.debug("Could not write cache-hit turn to thread memory", exc_info=True)
 
@@ -89,7 +94,9 @@ def input_text_for_screening(agent, question: str, thread_id: str) -> str:
 
     try:
         state = agent.get_state(thread_config(thread_id))
+        logger.info("entering input_text_for_screening() with thread_id=%s, turns=%d, state=%s", thread_id, turns, state)
         messages = (getattr(state, "values", None) or {}).get("messages", [])
+        logger.info("messages retrieved for screening: %s", messages)
     except Exception:
         logger.debug("Could not read conversation history for screening", exc_info=True)
         return question
@@ -110,4 +117,5 @@ def input_text_for_screening(agent, question: str, thread_id: str) -> str:
         return question
     # Plain concatenation of the user's own messages — no added framing that
     # a prompt-injection classifier might itself react to.
+    logger.info("final screening text: %s", "\n".join([*prior, question]))
     return "\n".join([*prior, question])

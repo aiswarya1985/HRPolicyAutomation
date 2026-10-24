@@ -67,6 +67,7 @@ def _build_guarded_assistant(collection_name: str, ingest_fn, checkpointer=None)
     agent = create_reliability_agent(
         get_llm(), [create_guarded_search_tool(vector_store)], checkpointer=_resolve_checkpointer(checkpointer)
     )
+    logger.info(f"agent and semantic cache;{agent}, {SemanticCache()}")
     return agent, SemanticCache()
 
 
@@ -134,6 +135,7 @@ def ask(agent, cache, question: str, thread_id: str = "default-session") -> str:
         return cached_answer
 
     message = thread_memory.invoke_agent(agent, question, thread_id)
+    logger.info("Agent returned message: %s", message)
     answer = message.text
 
     output_ok, output_reason = check_output(answer)

@@ -101,7 +101,7 @@ RELEVANCE_THRESHOLD = 0.35
 ## RELIABILITY — input/output safety guardrail (Model Armor)
 
 GUARDRAIL_PROVIDER = os.getenv("GUARDRAIL_PROVIDER", "model_armor")  # "model_armor" | "gemini_lite" | "none"
-MODEL_ARMOR_LOCATION = os.getenv("MODEL_ARMOR_LOCATION", "us")  # multi-region; verify supported regions at setup time
+MODEL_ARMOR_LOCATION = os.getenv("MODEL_ARMOR_LOCATION", "us-central1")  # multi-region; verify supported regions at setup time
 MODEL_ARMOR_TEMPLATE_ID = os.getenv("MODEL_ARMOR_TEMPLATE_ID", "hr-assistant-guardrail")
 
 # What to do when the guardrail PROVIDER itself errors (an API failure, not

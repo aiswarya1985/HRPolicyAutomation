@@ -1,0 +1,8 @@
+2026-10-24 17:19:10,851 | INFO     | [File: tracing.py] [Method: check_langsmith_tracing] [Line: 26] | LangSmith tracing ENABLED - project 'hr-policy-assistant', traces at https://smith.langchain.com
+2026-10-24 17:19:15,639 | INFO     | [File: vector_store.py] [Method: collection_exists] [Line: 45] | Entering collection_exists() with collection_name: hr_policies
+2026-10-24 17:19:17,104 | INFO     | [File: vector_store.py] [Method: collection_exists] [Line: 45] | Entering collection_exists() with collection_name: hr_policies
+2026-10-24 17:19:17,716 | INFO     | [File: vector_store.py] [Method: load_vector_store] [Line: 69] | Entering load_vector_store() with collection_name: hr_policies, hybrid: True
+2026-10-24 17:19:30,610 | INFO     | [File: llm.py] [Method: get_llm] [Line: 80] | Entering get_llm() with model_name=gemini-2.5-flash
+2026-10-24 17:19:30,834 | INFO     | [File: router.py] [Method: routing_strategy_init] [Line: 1461] | Routing strategy: simple-shuffle
+2026-10-24 17:19:30,852 | INFO     | [File: agent.py] [Method: create_reliability_agent] [Line: 49] | Creating reliability agent with RELIABILITY_SYSTEM_PROMPT
+2026-10-24 17:19:30,866 | INFO     | [File: pipeline.py] [Method: _build_guarded_assistant] [Line: 70] | agent and semantic cache;<langgraph.graph.state.CompiledStateGraph object at 0x000001F3EDAFB710>, <hr_assistant.semantic_cache.SemanticCache object at 0x000001F3EDAFB0B0>
