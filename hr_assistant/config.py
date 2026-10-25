@@ -59,7 +59,11 @@ LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "gemini-2.5-flash")
 # Needs GROQ_API_KEY set; without it the primary still works, the fallback
 # just can't fire.
 FALLBACK_MODEL_NAME = os.getenv("FALLBACK_MODEL_NAME", "openai/gpt-oss-20b")
+
 GROQ_API_KEY = os.getenv("GROQ_API_KEY","")
+GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
+JUDGE_MODEL_NAME = os.getenv("JUDGE_MODEL_NAME", "openai/gpt-oss-120b")
+
 
 # jina-embeddings-v2-base-en: 768-dim, English. Changing it changes the
 # vector dimension, so it also needs `python ingest.py --force`.
