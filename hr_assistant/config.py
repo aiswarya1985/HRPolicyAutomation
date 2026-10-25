@@ -141,6 +141,9 @@ LANGSMITH_ENDPOINT = os.getenv("LANGSMITH_ENDPOINT", "https://api.smith.langchai
 LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
 LANGSMITH_PROJECT = os.getenv("LANGSMITH_PROJECT", "hr-policy-assistant")
 
+ALLOWED_EMPLOYEE_EMAILS = {
+    e.strip() for e in os.getenv("ALLOWED_EMPLOYEE_EMAILS", "").split(",") if e.strip()
+}
 
 def check_api_keys() -> None:
     """Stop early with a clear message if a required key/config is missing."""

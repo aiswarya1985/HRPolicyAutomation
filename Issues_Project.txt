@@ -22,3 +22,34 @@ GCP create the template for model armour
 note down location
 
 gcloud services enable modelarmor.googleapis.com
+
+gcloud run deploy hr-rag-assistant \
+  --source . \
+  --project=hrpolicyautomation \
+  --region=us-central1 \
+  --allow-unauthenticated \
+  --env-vars-file=deploy.env.yaml
+
+error 1 deployment
+
+gcloud projects add-iam-policy-binding hrpolicyautomation \
+  --member="serviceAccount:874072793451-compute@developer.gserviceaccount.com" \
+  --role="roles/run.builder"
+
+with secrets
+gcloud run deploy hr-rag-assistant \
+  --source . \
+  --project=hrpolicyautomation \
+  --region=us-central1 \
+  --allow-unauthenticated \
+  --set-secrets=/app/.streamlit/secrets.toml=streamlit-auth:latest \
+  --env-vars-file=deploy.env.yaml  
+
+  gcloud run deploy hr-rag-assistant \
+  --source . \
+  --project=hrpolicyautomation \
+  --region=us-central1 \
+  --allow-unauthenticated \
+  --memory 2Gi \
+  --set-secrets=/app/.streamlit/secrets.toml=streamlit-auth:latest \
+  --env-vars-file=deploy.env.yaml

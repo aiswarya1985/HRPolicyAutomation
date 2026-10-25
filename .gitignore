@@ -29,3 +29,5 @@ commands-security.md
 commands-deployment.md
 
 .streamlit/secrets.toml
+
+deploy.env.yaml

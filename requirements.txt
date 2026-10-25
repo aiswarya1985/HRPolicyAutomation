@@ -15,7 +15,7 @@ langgraph>=0.2
 # LiteLLM SDK (hr_assistant/llm.py). langchain-openai is the eval judge only.
 langchain-google-genai
 langchain-openai
-litellm
+litellm[proxy]==1.105.1
 langchain-litellm
 
 # vector store — Qdrant Cloud (dense + sparse/BM25 hybrid)
