@@ -1,7 +1,7 @@
 import os
 
 # 1. SECURITY ISSUE: Hardcoded password and API key
-password = "SuperSecretPassword123!"
+password = "SuperSecretPassword123!!"
 api_key = "sk-1234567890abcdef"
 
 # 2. STYLE ISSUE: Bad formatting and unused variable
